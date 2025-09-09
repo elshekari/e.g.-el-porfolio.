@@ -5,7 +5,7 @@ document.getElementById('year').textContent = new Date().getFullYear();
 
 // Set your social links once here
 const LINKS = {
-  venmo: 'https://vimeo.com/YOURLINK',           // <-- replace
+  venmo: 'https://vimeo.com/Y',           // <-- replace
   youtube: 'https://youtube.com/@elshekari',        // <-- replace (optional: your channel)
   linkedin: 'https://www.linkedin.com/in/YOURID',// <-- replace
   instagram: 'https://instagram.com/elshekaari'  // <-- replace
