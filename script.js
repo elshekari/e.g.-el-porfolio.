@@ -5,10 +5,12 @@ document.getElementById('year').textContent = new Date().getFullYear();
 
 // Set your social links once here
 const LINKS = {
-  venmo: 'https://venmo.com/YOURLINK',           // <-- replace
-  youtube: 'https://youtube.com/@elelsh',        // <-- replace (optional: your channel)
+  venmo: 'https://vimeo.com/YOURLINK',           // <-- replace
+  youtube: 'https://youtube.com/@elshekari',        // <-- replace (optional: your channel)
   linkedin: 'https://www.linkedin.com/in/YOURID',// <-- replace
   instagram: 'https://instagram.com/elshekaari'  // <-- replace
+};
+  instagram: 'https://instagram.com/elvideoarts'  // <-- replace
 };
 
 document.getElementById('link-venmo').href = LINKS.venmo;
