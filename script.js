@@ -13,13 +13,13 @@ const LINKS = {
   instagram: 'https://instagram.com/elvideoarts'  // <-- replace
 };
 
-document.getElementById('link-venmo').href = LINKS.venmo;
+document.getElementById('link-vimeo').href = LINKS.venmo;
 document.getElementById('link-youtube').href = LINKS.youtube;
 document.getElementById('link-linkedin').href = LINKS.linkedin;
 document.getElementById('link-instagram').href = LINKS.instagram;
-document.getElementById('venmo-button').href = LINKS.venmo;
+document.getElementById('vimeo-button').href = LINKS.venmo;
 
-document.getElementById('foot-venmo').href = LINKS.venmo;
+document.getElementById('foot-vimeo').href = LINKS.venmo;
 document.getElementById('foot-youtube').href = LINKS.youtube;
 document.getElementById('foot-linkedin').href = LINKS.linkedin;
 document.getElementById('foot-instagram').href = LINKS.instagram;
