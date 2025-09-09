@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>El Shekari — Portfolio</title>
+  <meta name="description" content="El Shekari — installation, video art, paintings, drawings, stop motion, school lifes. Portfolio and contact." />
+  <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="bg-anim" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <a class="logo" href="#top" aria-label="Home">
+      <svg viewBox="0 0 200 60" role="img" aria-labelledby="logoTitle">
+        <title id="logoTitle">el — portfolio</title>
+        <defs>
+          <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="var(--accent-1)" />
+            <stop offset="100%" stop-color="var(--accent-2)" />
+          </linearGradient>
+        </defs>
+        <text x="0" y="45" font-size="48" font-family="ui-sans-serif,system-ui,Segoe UI,Roboto,Arial" fill="url(#g)" letter-spacing="2">el</text>
+      </svg>
+    </a>
+
+    <nav class="main-nav" aria-label="Primary">
+      <a href="#work">Work</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <nav class="social" aria-label="Social links">
+      <a id="link-venmo" href="#" target="_blank" rel="noopener" aria-label="Venmo">
+        <img src="assets/icons/venmo.svg" alt="Venmo" />
+      </a>
+      <a id="link-youtube" href="#" target="_blank" rel="noopener" aria-label="YouTube">
+        <img src="assets/icons/youtube.svg" alt="YouTube" />
+      </a>
+      <a id="link-linkedin" href="#" target="_blank" rel="noopener" aria-label="LinkedIn">
+        <img src="assets/icons/linkedin.svg" alt="LinkedIn" />
+      </a>
+      <a id="link-instagram" href="#" target="_blank" rel="noopener" aria-label="Instagram">
+        <img src="assets/icons/instagram.svg" alt="Instagram" />
+      </a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-label="Intro">
+      <h1><span class="whisper">a life remade into work.</span> art — film — objects — oddities.</h1>
+      <p class="tag">Installation • Video Arts • Paintings • Drawings • Stop Motion • School Lifes</p>
+      <a href="#work" class="cta">Enter the archive</a>
+    </section>
+
+    <section id="work" class="work" aria-labelledby="workTitle">
+      <header class="section-head">
+        <h2 id="workTitle">Work</h2>
+        <div class="filters" role="tablist" aria-label="Filter categories">
+          <button class="filter is-active" data-filter="all" role="tab" aria-selected="true">All</button>
+          <button class="filter" data-filter="installation" role="tab">Installation</button>
+          <button class="filter" data-filter="video" role="tab">Video Arts</button>
+          <button class="filter" data-filter="painting" role="tab">Paintings</button>
+          <button class="filter" data-filter="drawing" role="tab">Drawings</button>
+          <button class="filter" data-filter="stopmotion" role="tab">Stop Motion</button>
+          <button class="filter" data-filter="school" role="tab">School Lifes</button>
+        </div>
+      </header>
+
+      <div class="grid" id="gallery" aria-live="polite">
+        <!-- === Replace these sample cards with your works === -->
+        <figure class="card" data-cat="video">
+          <video src="assets/media/sample_video.mp4" muted playsinline preload="metadata" aria-label="Sample video"></video>
+          <figcaption>
+            <h3>Memory Loop (2024)</h3>
+            <p>Video Art • 02:13 • handheld JVC texture</p>
+          </figcaption>
+        </figure>
+
+        <figure class="card" data-cat="installation">
+          <img src="assets/media/sample_installation.jpg" alt="Installation: projected light on fabric and wires" loading="lazy" />
+          <figcaption>
+            <h3>Spectral Room (2023)</h3>
+            <p>Installation • fabric, projector, time</p>
+          </figcaption>
+        </figure>
+
+        <figure class="card" data-cat="painting">
+          <img src="assets/media/sample_painting.jpg" alt="Blue-toned painting with rough brushstrokes" loading="lazy" />
+          <figcaption>
+            <h3>Almost Blue No. 4 (2022)</h3>
+            <p>Painting • oil on canvas</p>
+          </figcaption>
+        </figure>
+
+        <figure class="card" data-cat="drawing">
+          <img src="assets/media/sample_drawing.jpg" alt="Graphite drawing, delicate lines" loading="lazy" />
+          <figcaption>
+            <h3>Sleep Study (2021)</h3>
+            <p>Drawing • graphite on paper</p>
+          </figcaption>
+        </figure>
+
+        <figure class="card" data-cat="stopmotion">
+          <img src="assets/media/sample_stopmotion.gif" alt="Stop motion still: paper figure moving" loading="lazy" />
+          <figcaption>
+            <h3>Paper Heart (2020)</h3>
+            <p>Stop Motion • 350 frames • paper</p>
+          </figcaption>
+        </figure>
+
+        <figure class="card" data-cat="school">
+          <img src="assets/media/sample_school.jpg" alt="Sketchbook spread with notes and doodles" loading="lazy" />
+          <figcaption>
+            <h3>Studio Diary</h3>
+            <p>School Lifes • process notes • sketches</p>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section id="about" class="about" aria-labelledby="aboutTitle">
+      <h2 id="aboutTitle">About</h2>
+      <p>El (they/them) — painter, video artist, installation maker, stylist. Work born of recovery, repetition, and documented obsession. I stitch film grain and cyanotype dreams into objects and moving images.</p>
+      <p class="note">To add work: drop files into <code>/assets/media</code> and duplicate the <code>&lt;figure class="card"&gt;</code> pattern. Set <code>data-cat</code> to: installation, video, painting, drawing, stopmotion, or school.</p>
+    </section>
+
+    <section id="contact" class="contact" aria-labelledby="contactTitle">
+      <h2 id="contactTitle">Contact</h2>
+      <div class="contact-actions">
+        <a class="btn ghost" href="mailto:hello@example.com">Email me</a>
+        <a class="btn solid" id="venmo-button" href="#" target="_blank" rel="noopener">Tip via Venmo</a>
+      </div>
+      <p class="small">Or use the icons at the top or bottom. This site is my archive and my career — not just a channel.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <nav class="social footer-social" aria-label="Social links footer">
+      <a id="foot-venmo" href="#" target="_blank" rel="noopener" aria-label="Venmo"><img src="assets/icons/venmo.svg" alt="Venmo" /></a>
+      <a id="foot-youtube" href="#" target="_blank" rel="noopener" aria-label="YouTube"><img src="assets/icons/youtube.svg" alt="YouTube" /></a>
+      <a id="foot-linkedin" href="#" target="_blank" rel="noopener" aria-label="LinkedIn"><img src="assets/icons/linkedin.svg" alt="LinkedIn" /></a>
+      <a id="foot-instagram" href="#" target="_blank" rel="noopener" aria-label="Instagram"><img src="assets/icons/instagram.svg" alt="Instagram" /></a>
+    </nav>
+    <p class="copyright">© <span id="year"></span> El Shekari. All rights reserved.</p>
+  </footer>
+
+  <div id="lightbox" class="lightbox" aria-hidden="true" role="dialog" aria-label="Media viewer">
+    <button class="lb-close" aria-label="Close">×</button>
+    <div class="lb-content"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
