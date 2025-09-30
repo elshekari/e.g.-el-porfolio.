@@ -1,95 +1,180 @@
-// el — portfolio interactions
+/* scripts.js - hero crossfade, filters, modal, statement expand, swipe support */
+document.addEventListener('DOMContentLoaded', function () {
+  /* ========== Hero slideshow ========== */
+  const slideshow = document.getElementById('slideshow');
+  const slides = Array.from(slideshow.querySelectorAll('.slide'));
+  const prevBtn = slideshow.querySelector('.prev');
+  const nextBtn = slideshow.querySelector('.next');
+  const dotsWrap = document.getElementById('dots');
 
-// Year
-document.getElementById('year').textContent = new Date().getFullYear();
+  let current = 0;
+  const fadeDuration = 1800; // ms (matches CSS)
+  const slideDuration = 7000; // ms per slide
+  let timer = null;
+  let paused = false;
 
-// Set your social links once here
-const LINKS = {
-  venmo: 'https://vimeo.com/Y',           // <-- replace
-  youtube: 'https://youtube.com/@elshekari',        // <-- replace (optional: your channel)
-  linkedin: 'https://www.linkedin.com/in/YOURID',// <-- replace
-  instagram: 'https://instagram.com/elshekaari'  // <-- replace
-};
-  instagram: 'https://instagram.com/elvideoarts'  // <-- replace
-};
+  function createDots() {
+    slides.forEach((s, i) => {
+      const btn = document.createElement('button');
+      btn.className = i === 0 ? 'active' : '';
+      btn.setAttribute('aria-label', `Go to slide ${i+1}`);
+      btn.addEventListener('click', () => goTo(i));
+      dotsWrap.appendChild(btn);
+    });
+  }
 
-document.getElementById('link-vimeo').href = LINKS.venmo;
-document.getElementById('link-youtube').href = LINKS.youtube;
-document.getElementById('link-linkedin').href = LINKS.linkedin;
-document.getElementById('link-instagram').href = LINKS.instagram;
-document.getElementById('vimeo-button').href = LINKS.venmo;
+  function show(i) {
+    slides.forEach((s, idx) => {
+      s.classList.toggle('active', idx === i);
+    });
+    Array.from(dotsWrap.children).forEach((d, idx) => d.classList.toggle('active', idx === i));
+    current = i;
+  }
 
-document.getElementById('foot-vimeo').href = LINKS.venmo;
-document.getElementById('foot-youtube').href = LINKS.youtube;
-document.getElementById('foot-linkedin').href = LINKS.linkedin;
-document.getElementById('foot-instagram').href = LINKS.instagram;
+  function next() { goTo((current + 1) % slides.length); }
+  function prev() { goTo((current - 1 + slides.length) % slides.length); }
 
-// Filters
-const filters = document.querySelectorAll('.filter');
-const cards = document.querySelectorAll('.card');
+  function goTo(i) {
+    show(i);
+    resetTimer();
+  }
 
-filters.forEach(btn => {
-  btn.addEventListener('click', () => {
-    filters.forEach(b => b.classList.remove('is-active'));
-    btn.classList.add('is-active');
-    const f = btn.dataset.filter;
-    cards.forEach(c => {
-      const show = f === 'all' || c.dataset.cat === f;
-      c.style.display = show ? '' : 'none';
-      if(show) c.classList.add('reveal');
+  function resetTimer() {
+    if (timer) clearInterval(timer);
+    timer = setInterval(() => { if (!paused) next(); }, slideDuration);
+  }
+
+  // Pause on hover
+  slideshow.addEventListener('mouseenter', () => { paused = true; });
+  slideshow.addEventListener('mouseleave', () => { paused = false; });
+
+  // Controls
+  prevBtn.addEventListener('click', prev);
+  nextBtn.addEventListener('click', next);
+
+  // Keyboard navigation
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowLeft') prev();
+    if (e.key === 'ArrowRight') next();
+    if (e.key === 'Escape') closeModal();
+  });
+
+  // Build dots and start
+  createDots();
+  show(0);
+  resetTimer();
+
+  /* ========== Swipe support for mobile ========== */
+  let touchStartX = 0;
+  slideshow.addEventListener('touchstart', (e) => {
+    touchStartX = e.touches[0].clientX;
+  }, {passive:true});
+  slideshow.addEventListener('touchend', (e) => {
+    const dx = e.changedTouches[0].clientX - touchStartX;
+    if (dx > 50) prev();
+    else if (dx < -50) next();
+  });
+
+  /* ========== Works grid (load from example-content.json) ========== */
+  const grid = document.getElementById('works-grid');
+  const filters = Array.from(document.querySelectorAll('.filters button'));
+
+  // Load content JSON (local)
+  fetch('example-content.json').then(r => r.json()).then(data => {
+    window.WORKS = data.works || [];
+    renderWorks(window.WORKS);
+  }).catch(err => {
+    // fallback demo items if json missing
+    console.warn('example-content.json not found; using placeholder items.', err);
+    const fallback = [
+      {id:'demo1',title:'Almost Blue',year:'2024',category:'clothing',thumb:'assets/thumb1.jpg',type:'image',desc:'Cyanotype tank top'},
+      {id:'demo2',title:'Paper Dress',year:'2023',category:'stopmotion',thumb:'assets/thumb2.jpg',type:'video',video:'assets/demo-video.mp4',desc:'Stop motion short'}
+    ];
+    window.WORKS = fallback;
+    renderWorks(window.WORKS);
+  });
+
+  function renderWorks(items){
+    grid.innerHTML = '';
+    items.forEach(item => {
+      const t = document.createElement('article');
+      t.className = 'tile';
+      t.tabIndex = 0;
+      t.dataset.category = item.category || 'other';
+      t.innerHTML = `
+        <img src="${item.thumb}" alt="${item.title} — ${item.year}">
+        <div class="meta"><strong>${item.title}</strong><div>${item.year} — ${item.medium || ''}</div></div>
+      `;
+      t.addEventListener('click', () => openModal(item));
+      grid.appendChild(t);
+    });
+  }
+
+  // Filter buttons
+  filters.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filters.forEach(b=>b.classList.remove('active'));
+      btn.classList.add('active');
+      const f = btn.dataset.filter;
+      filterGrid(f);
     });
   });
-});
 
-// Reveal on scroll
-const io = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if(e.isIntersecting){ e.target.classList.add('is-visible'); io.unobserve(e.target); }
-  });
-}, {threshold: 0.12});
-
-document.querySelectorAll('.card, .about, .contact').forEach(el => {
-  el.classList.add('reveal'); io.observe(el);
-});
-
-// Lightbox
-const lightbox = document.getElementById('lightbox');
-const lbContent = lightbox.querySelector('.lb-content');
-const lbClose = lightbox.querySelector('.lb-close');
-
-function openLB(node){
-  lbContent.innerHTML = '';
-  const clone = node.cloneNode(true);
-  if(clone.tagName === 'IMG' || clone.tagName === 'VIDEO'){
-    clone.controls = true;
-    clone.autoplay = true;
-    clone.muted = false;
+  function filterGrid(filter){
+    const tiles = Array.from(grid.children);
+    tiles.forEach(t => {
+      if (filter === 'all' || t.dataset.category === filter) t.style.display = '';
+      else t.style.display = 'none';
+    });
   }
-  lbContent.appendChild(clone);
-  lightbox.classList.add('is-open');
-  lightbox.setAttribute('aria-hidden','false');
-}
-function closeLB(){
-  lightbox.classList.remove('is-open');
-  lightbox.setAttribute('aria-hidden','true');
-  lbContent.innerHTML = '';
-}
-lbClose.addEventListener('click', closeLB);
-lightbox.addEventListener('click', (e)=>{ if(e.target === lightbox) closeLB(); });
-document.addEventListener('keydown', (e)=>{ if(e.key === 'Escape') closeLB(); });
 
-document.querySelectorAll('.card img, .card video').forEach(media => {
-  media.addEventListener('click', ()=> openLB(media));
-});
+  /* ========== Modal lightbox ========== */
+  const modal = document.getElementById('modal');
+  const modalContent = document.getElementById('modal-content');
+  const modalClose = document.querySelector('.modal-close');
 
-// Smooth scrolling for internal links
-document.querySelectorAll('a[href^="#"]').forEach(a => {
-  a.addEventListener('click', e => {
-    const id = a.getAttribute('href').slice(1);
-    const el = document.getElementById(id);
-    if(el){
-      e.preventDefault();
-      window.scrollTo({ top: el.offsetTop - 70, behavior: 'smooth' });
+  function openModal(item){
+    modalContent.innerHTML = '';
+    modal.setAttribute('aria-hidden', 'false');
+    // Render content
+    if (item.type === 'video' && (item.video || item.embed)){
+      if (item.embed){
+        modalContent.innerHTML = `<h3 id="modal-title">${item.title} — ${item.year}</h3><div>${item.embed}</div><p>${item.desc || ''}</p>`;
+      } else {
+        modalContent.innerHTML = `<h3 id="modal-title">${item.title} — ${item.year}</h3><video controls src="${item.video}" style="max-width:100%"></video><p>${item.desc || ''}</p>`;
+      }
+    } else {
+      modalContent.innerHTML = `<h3 id="modal-title">${item.title} — ${item.year}</h3><img src="${item.full || item.thumb}" alt="${item.title}" style="max-width:100%"><p>${item.desc||''}</p>`;
     }
-  });
+
+    // optional PDF
+    if (item.pdf) {
+      const a = document.createElement('a');
+      a.href = item.pdf; a.textContent = 'Download press kit (PDF)'; a.className='btn';
+      modalContent.appendChild(a);
+    }
+
+    document.body.style.overflow = 'hidden';
+  }
+
+  modalClose.addEventListener('click', closeModal);
+  modal.addEventListener('click', (e)=>{ if (e.target === modal) closeModal(); });
+
+  function closeModal(){
+    modal.setAttribute('aria-hidden', 'true');
+    modalContent.innerHTML = '';
+    document.body.style.overflow = '';
+  }
+
+  /* ========== Statement expand ========== */
+  const expandBtn = document.getElementById('expand-statement');
+  if (expandBtn){
+    expandBtn.addEventListener('click', () => {
+      const long = document.querySelector('.statement-long');
+      const expanded = expandBtn.getAttribute('aria-expanded') === 'true';
+      expandBtn.setAttribute('aria-expanded', String(!expanded));
+      long.hidden = expanded;
+      expandBtn.textContent = expanded ? 'Read more' : 'Show less';
+    });
+  }
 });
