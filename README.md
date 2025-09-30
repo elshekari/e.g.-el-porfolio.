@@ -1,47 +1,34 @@
-# El Shekari — Portfolio
+# El Shekari — Portfolio (black minimalist)
 
-This is a simple static portfolio site for El Shekari (installation, video arts, paintings, drawings, stop motion, school lifes).
+## Quick start
+1. Create a new GitHub repository.
+2. Copy all files from this scaffold into the repo root.
+3. Add your images/videos into `/assets` and update `example-content.json` with correct filenames and metadata.
+4. Commit and push.
 
-## Prepare
-1. Replace the placeholder files in `assets/media/` with your images, gifs, and mp4s.
-2. Update social links in `script.js` (variable `LINKS`).
-3. Edit `index.html` text (hero, about, email) to your voice.
+## Deploy on Netlify (recommended)
+1. Create a Netlify account and "New site from Git" → link your GitHub repo.
+2. Build settings: none required (static HTML). Publish directory: `/` (root).
+3. (Optional) Enable Netlify Forms: the contact form uses `netlify` form attributes. Netlify collects submissions automatically.
 
-## Deploy to GitHub Pages (quick)
-1. Create a new repository on GitHub (e.g. `el-portfolio`).
-2. Push this project (see commands below).
-3. In GitHub Settings → Pages → select `main` branch and `/ (root)` as source → Save.
-4. Your site will be available at `https://<your-username>.github.io/<repo-name>/` (or at your custom domain if you add a CNAME).
+## Deploy on Vercel
+1. Create a Vercel account and "Import Project" from GitHub.
+2. Select the repo and deploy. No build step required.
 
-## Git commands (local → GitHub)
-```bash
-# in project root
-git init
-git add .
-git commit -m "Initial commit — el portfolio"
-git branch -M main
-git remote add origin https://github.com/<your-username>/<repo-name>.git
-git push -u origin main# El Shekari — Portfolio
+## How to edit content
+- Update `example-content.json` to add new works (thumb, full, video, pdf).
+- Replace hero images in `index.html` (inside `.slideshow`) or connect a CMS (Netlify CMS or Sanity).
+- Signature: replace `assets/signature.svg`.
 
-This is a simple static portfolio site for El Shekari (installation, video arts, paintings, drawings, stop motion, school lifes).
+## Netlify Forms
+The contact form includes `data-netlify="true"`. If you want email notifications:
+- In Netlify dashboard → Forms → choose the form and set up notifications.
 
-## Prepare
-1. Replace the placeholder files in `assets/media/` with your images, gifs, and mp4s.
-2. Update social links in `script.js` (variable `LINKS`).
-3. Edit `index.html` text (hero, about, email) to your voice.
+## Accessibility & Performance
+- Images: use responsive `srcset` when uploading final images.
+- Videos: provide WebM + MP4. All hero videos are muted + playsinline.
+- Lazy load: browsers will lazy-load non-critical images (consider adding `loading="lazy"`).
 
-## Deploy to GitHub Pages (quick)
-1. Create a new repository on GitHub (e.g. `el-portfolio`).
-2. Push this project (see commands below).
-3. In GitHub Settings → Pages → select `main` branch and `/ (root)` as source → Save.
-4. Your site will be available at `https://<your-username>.github.io/<repo-name>/` (or at your custom domain if you add a CNAME).
-
-## Git commands (local → GitHub)
-```bash
-# in project root
-git init
-git add .
-git commit -m "Initial commit — el portfolio"
-git branch -M main
-git remote add origin https://github.com/<your-username>/<repo-name>.git
-git push -u origin main
+## Notes
+- This scaffold is framework-free and easy to edit.
+- For a CMS: consider adding NetlifyCMS or Sanity — I can help wire that next.
