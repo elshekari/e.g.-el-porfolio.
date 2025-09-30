@@ -1,0 +1,37 @@
+{
+  "works": [
+    {
+      "id": "w1",
+      "title": "Almost Blue",
+      "year": "2024",
+      "category": "clothing",
+      "medium": "Cyanotype prints on tank tops",
+      "thumb": "assets/thumb_almostblue.jpg",
+      "full": "assets/full_almostblue.jpg",
+      "type": "image",
+      "desc": "Limited cyanotype wearable collection"
+    },
+    {
+      "id": "w2",
+      "title": "Paper Dress (stop motion)",
+      "year": "2023",
+      "category": "stopmotion",
+      "medium": "Stop motion short",
+      "thumb": "assets/thumb_paperdress.jpg",
+      "video": "assets/paperdress.webm",
+      "type": "video",
+      "desc": "3 minute stop motion — looped clip"
+    },
+    {
+      "id": "w3",
+      "title": "Blue Painting",
+      "year": "2022",
+      "category": "painting",
+      "medium": "Oil on canvas",
+      "thumb": "assets/thumb_bluepainting.jpg",
+      "full": "assets/full_bluepainting.jpg",
+      "type": "image",
+      "desc": "Large oil study on blue pigments"
+    }
+  ]
+}
