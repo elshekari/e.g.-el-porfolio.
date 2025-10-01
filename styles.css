@@ -1,26 +1,44 @@
-/* styles.css - minimal black portfolio */
+/* styles.css - dark grainy gray portfolio */
+
 /* Base reset */
 :root{
-  --bg:#000;
-  --muted:#1a1a1a;
-  --text:#eee;
-  --muted-text:#bbb;
-  --accent: #fff;
+  --bg:#1a1a1a;        /* dark gray base */
+  --muted:#2a2a2a;     /* muted dark gray for blocks */
+  --text:#eee;          /* main text */
+  --muted-text:#999;    /* muted text */
+  --accent:#fff;        /* highlights */
   --max-width:1200px;
   --gap:24px;
   --hero-height:100vh;
 }
+
 *{box-sizing:border-box}
 html,body{height:100%}
+
 body{
   margin:0;
-  background:var(--bg);
-  color:var(--text);
-  font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-  -webkit-font-smoothing:antialiased;
-  -moz-osx-font-smoothing:grayscale;
+  background: var(--bg);
+  color: var(--text);
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   line-height:1.4;
+
+  /* subtle grain effect */
+  background-image: 
+    repeating-linear-gradient(
+      45deg,
+      rgba(255,255,255,0.02) 0 1px,
+      transparent 1px 2px
+    ),
+    repeating-linear-gradient(
+      -45deg,
+      rgba(255,255,255,0.02) 0 1px,
+      transparent 1px 2px
+    );
+  background-blend-mode: overlay;
 }
+
 /* Header */
 .site-header{
   position:fixed;
@@ -43,12 +61,32 @@ body{
 
 /* HERO */
 .hero{min-height:var(--hero-height);display:flex;flex-direction:column;justify-content:flex-end;align-items:center;position:relative;overflow:hidden}
-.slideshow{position:relative;width:100%;height:calc(var(--hero-height));max-height:110vh;background:var(--bg);overflow:hidden}
+.slideshow{
+  position:relative;
+  width:100%;
+  height:calc(var(--hero-height));
+  background:var(--bg);
+  overflow:hidden;
+
+  /* optional extra grain */
+  background-image: 
+    repeating-linear-gradient(
+      45deg,
+      rgba(255,255,255,0.015) 0 1px,
+      transparent 1px 2px
+    ),
+    repeating-linear-gradient(
+      -45deg,
+      rgba(255,255,255,0.015) 0 1px,
+      transparent 1px 2px
+    );
+  background-blend-mode: overlay;
+}
 .slide{position:absolute;inset:0;opacity:0;transition:opacity 1.8s ease;will-change:opacity;display:flex;align-items:center;justify-content:center}
 .slide img, .slide video{max-width:100%;height:100%;object-fit:cover;width:100%}
 .slide.active{opacity:1;z-index:10}
-.caption{position:absolute;left:24px;bottom:32px;background:rgba(0,0,0,0.55);padding:10px 14px;border-radius:6px;color:var(--text);font-size:0.95rem}
-.slide-control{position:absolute;top:50%;transform:translateY(-50%);background:rgba(0,0,0,0.45);border:1px solid rgba(255,255,255,0.06);color:var(--text);padding:10px;border-radius:6px;cursor:pointer}
+.caption{position:absolute;left:24px;bottom:32px;background:rgba(26,26,26,0.55);padding:10px 14px;border-radius:6px;color:var(--text);font-size:0.95rem}
+.slide-control{position:absolute;top:50%;transform:translateY(-50%);background:rgba(26,26,26,0.45);border:1px solid rgba(255,255,255,0.06);color:var(--text);padding:10px;border-radius:6px;cursor:pointer}
 .prev{left:16px} .next{right:16px}
 .dots{position:absolute;right:18px;bottom:18px;display:flex;gap:8px}
 .dots button{width:10px;height:10px;border-radius:50%;border:1px solid rgba(255,255,255,.2);background:transparent;cursor:pointer}
@@ -70,12 +108,12 @@ h2{font-family: Georgia, "Times New Roman", serif;font-weight:500;font-size:1.6r
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px}
 .tile{background:var(--muted);min-height:160px;display:flex;align-items:flex-end;position:relative;overflow:hidden;border-radius:6px}
 .tile img{width:100%;height:100%;object-fit:cover}
-.tile .meta{position:absolute;left:8px;bottom:8px;background:rgba(0,0,0,.6);padding:8px;border-radius:6px;font-size:.9rem;opacity:0;transition:opacity .25s}
+.tile .meta{position:absolute;left:8px;bottom:8px;background:rgba(26,26,26,.6);padding:8px;border-radius:6px;font-size:.9rem;opacity:0;transition:opacity .25s}
 .tile:hover .meta{opacity:1}
 .collection-info{padding:10px;color:var(--muted-text);font-size:.9rem}
 
 /* modal */
-.modal{position:fixed;inset:0;background:rgba(0,0,0,.92);display:flex;align-items:center;justify-content:center;padding:28px;z-index:200;visibility:hidden;opacity:0;transition:opacity .25s}
+.modal{position:fixed;inset:0;background:rgba(26,26,26,.92);display:flex;align-items:center;justify-content:center;padding:28px;z-index:200;visibility:hidden;opacity:0;transition:opacity .25s}
 .modal[aria-hidden="false"]{visibility:visible;opacity:1}
 .modal-close{position:absolute;right:18px;top:18px;background:transparent;border:none;color:var(--text);font-size:28px;cursor:pointer}
 .modal-content{max-width:1000px;max-height:90vh;overflow:auto;color:var(--text)}
@@ -83,7 +121,7 @@ h2{font-family: Georgia, "Times New Roman", serif;font-weight:500;font-size:1.6r
 /* contact form */
 .contact-form{display:grid;gap:10px;max-width:560px}
 .contact-form label{display:flex;flex-direction:column;color:var(--muted-text);font-size:.95rem}
-.contact-form input, .contact-form textarea, .contact-form select{background:#0b0b0b;border:1px solid rgba(255,255,255,.04);color:var(--text);padding:10px;border-radius:6px}
+.contact-form input, .contact-form textarea, .contact-form select{background:#222;border:1px solid rgba(255,255,255,.04);color:var(--text);padding:10px;border-radius:6px}
 .btn{display:inline-block;padding:10px 14px;border:1px solid rgba(255,255,255,.08);background:transparent;color:var(--text);border-radius:6px;cursor:pointer}
 
 /* Footer */
