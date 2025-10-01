@@ -1,4 +1,4 @@
-# El Shekari — Portfolio (black minimalist)
+# El Shekari — Portfolio (grainy black minimalist)
 
 ## Quick start
 1. Create a new GitHub repository.
