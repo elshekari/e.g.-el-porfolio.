@@ -2,36 +2,27 @@
   "works": [
     {
       "id": "w1",
-      "title": "Almost Blue",
+      "title": "Almost Blue — Tank",
       "year": "2024",
-      "category": "clothing",
-      "medium": "Cyanotype prints on tank tops",
-      "thumb": "assets/thumb_almostblue.jpg",
-      "full": "assets/full_almostblue.jpg",
-      "type": "image",
-      "desc": "Limited cyanotype wearable collection"
+      "medium": "Cyanotype on cotton",
+      "categories": ["clothing","prints"],
+      "thumb": "/assets/thumb-clothing.jpg",
+      "large": "/assets/hero-1.jpg",
+      "alt": "— cyanotype tank, 2024",
+      "text": "Edition of 20. Contact to buy.",
+      "presskit": "/assets/presskit-almost-blue.pdf"
     },
     {
       "id": "w2",
-      "title": "Paper Dress (stop motion)",
+      "title": "Looped Installation",
       "year": "2023",
-      "category": "stopmotion",
-      "medium": "Stop motion short",
-      "thumb": "assets/thumb_paperdress.jpg",
-      "video": "assets/paperdress.webm",
+      "medium": "Video installation",
+      "categories": ["installation","video"],
+      "thumb": "/assets/thumb-video.jpg",
       "type": "video",
-      "desc": "3 minute stop motion — looped clip"
-    },
-    {
-      "id": "w3",
-      "title": "Blue Painting",
-      "year": "2022",
-      "category": "painting",
-      "medium": "Oil on canvas",
-      "thumb": "assets/thumb_bluepainting.jpg",
-      "full": "assets/full_bluepainting.jpg",
-      "type": "image",
-      "desc": "Large oil study on blue pigments"
+      "embed": "https://player.vimeo.com/video/000000000",
+      "alt": "— looped installation, 2023",
+      "text": "Looped projection at Gallery X."
     }
   ]
 }
