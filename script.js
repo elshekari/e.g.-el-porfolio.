@@ -1,3 +1,4 @@
+// Slideshow
 const slides = document.querySelectorAll('.slide');
 let current = 0;
 let interval = setInterval(nextSlide,7000);
@@ -5,7 +6,6 @@ let interval = setInterval(nextSlide,7000);
 function showSlide(index){
   slides.forEach((s,i)=>s.classList.toggle('active',i===index));
 }
-
 function nextSlide(){ current=(current+1)%slides.length; showSlide(current);}
 function prevSlide(){ current=(current-1+slides.length-1)%slides.length; showSlide(current);}
 
@@ -14,3 +14,10 @@ document.querySelector('.hero-control.prev').addEventListener('click',()=>{prevS
 document.getElementById('hero-slides').addEventListener('mouseenter',()=>clearInterval(interval));
 document.getElementById('hero-slides').addEventListener('mouseleave',()=>interval=setInterval(nextSlide,7000));
 function resetInterval(){clearInterval(interval); interval=setInterval(nextSlide,7000);}
+
+// Overlay for works
+function openOverlay(src){
+  document.getElementById('overlay-img').src = src;
+  document.getElementById('overlay').style.display = 'flex';
+}
+function closeOverlay(){ document.getElementById('overlay').style.display='none'; }
