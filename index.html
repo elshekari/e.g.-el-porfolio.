@@ -1,161 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>EL Shekari — Portfolio</title>
-<meta name="description" content="EL Shekari — video art, cyanotype, installations. Minimal cinematic single-page portfolio.">
+<meta name="description" content="EL Shekari — Minimal cinematic portfolio.">
 <meta property="og:image" content="/assets/og-hero.jpg">
 
 <!-- Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet"> <!-- Minion placeholder -->
-<link href="https://fonts.googleapis.com/css2?family=Proxima+Nova:wght@400;500&display=swap" rel="stylesheet"> <!-- Proxima placeholder -->
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Proxima+Nova:wght@400;500&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="styles.css">
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Person",
-  "name": "EL Shekari",
-  "url": "https://yourdomain.example",
-  "sameAs": [
-    "https://instagram.com/yourA",
-    "https://instagram.com/yourB",
-    "https://youtube.com/your",
-    "https://vimeo.com/your"
-  ]
-}
-</script>
 </head>
 <body class="dark">
 
-<!-- HEADER -->
 <header class="site-header">
+  <!-- Top-left signature -->
   <div class="header-left">
-    <a href="#home" class="sig" aria-label="Home (signature)">
+    <a href="#home" class="sig" aria-label="Home">
       <img src="/assets/signature.svg" alt="EL Shekari signature">
     </a>
   </div>
 
-  <nav class="header-right">
-    <a href="#works">WORKS</a>
-    <a href="#cv">CV</a>
+  <!-- Top-center navigation -->
+  <nav class="header-center">
     <a href="#statement">ARTIST STATEMENT</a>
+    <a href="#cv">CV</a>
+    <a href="#works">WORKS</a>
     <a href="#contact">CONTACT</a>
   </nav>
+
+  <!-- Top-right name -->
+  <div class="header-right">
+    <span class="name">EL Shekari</span>
+  </div>
 </header>
 
 <main id="home">
 
-  <!-- HERO: smaller slideshow -->
+  <!-- SLIDESHOW HERO -->
   <section class="hero">
     <div class="slides" id="hero-slides">
-      <!-- IMAGE -->
-      <figure class="slide active" data-type="image" data-caption="— cyanotype suit, 2024">
+      <figure class="slide active" data-caption="— cyanotype suit, 2024">
         <img src="/assets/hero-1.jpg" alt="— cyanotype suit, 2024" loading="lazy">
       </figure>
-      <!-- VIDEO -->
-      <figure class="slide" data-type="video" data-caption="— installation loop, 2023">
+      <figure class="slide" data-caption="— installation loop, 2023">
         <video playsinline muted loop preload="metadata">
           <source src="/assets/hero-2.webm" type="video/webm">
           <source src="/assets/hero-2.mp4" type="video/mp4">
         </video>
       </figure>
-      <!-- GIF -->
-      <figure class="slide" data-type="image" data-caption="— stop-motion jacket, 2022">
+      <figure class="slide" data-caption="— stop-motion jacket, 2022">
         <img src="/assets/hero-3.gif" alt="— stop-motion jacket, 2022" loading="lazy">
       </figure>
     </div>
-
     <button class="hero-control prev" aria-label="Previous slide">‹</button>
     <button class="hero-control next" aria-label="Next slide">›</button>
   </section>
 
-  <!-- ARTIST STATEMENT + BIOGRAPHY -->
+  <!-- ARTIST STATEMENT + BIO -->
   <section id="statement" class="statement">
-    <h2>ARTIST STATEMENT</h2>
-    <p class="lead">
-      We make light into cloth and memory into motion. I record in case the world forgets me.
-    </p>
+    <p class="lead">We make light into cloth and memory into motion. I record in case the world forgets me.</p>
     <details>
       <summary>Read longer statement</summary>
-      <p>
-        A longer lyrical statement lives here — the place where process and obsession meet print, paint, and projection.
-      </p>
+      <p>A longer lyrical statement lives here — the place where process and obsession meet print, paint, and projection.</p>
     </details>
-
-    <h3>BIOGRAPHY</h3>
-    <p>
-      EL Shekari is a multidisciplinary artist working with video, installation, cyanotype, and painting. They have exhibited internationally and explore the intersections of memory, documentation, and materiality.
-    </p>
+    <p class="bio">EL Shekari is a multidisciplinary artist working with video, installation, cyanotype, and painting. They have exhibited internationally and explore the intersections of memory, documentation, and materiality.</p>
   </section>
 
   <!-- WORKS PREVIEW -->
   <section id="works" class="works">
-    <h2>WORKS</h2>
     <div class="works-grid">
-      <div class="work-tile">
-        <img src="/assets/work-1.jpg" alt="Work 1" loading="lazy">
-        <div class="tile-info">
-          <h4>Work 1</h4>
-          <span>2024 | Painting</span>
-        </div>
+      <div class="work-tile" onclick="openOverlay('/assets/work-1-full.jpg')">
+        <img src="/assets/work-1.jpg" alt="Work 1">
       </div>
-      <div class="work-tile">
-        <img src="/assets/work-2.jpg" alt="Work 2" loading="lazy">
-        <div class="tile-info">
-          <h4>Work 2</h4>
-          <span>2023 | Video Art</span>
-        </div>
+      <div class="work-tile" onclick="openOverlay('/assets/work-2-full.jpg')">
+        <img src="/assets/work-2.jpg" alt="Work 2">
+      </div>
+      <div class="work-tile" onclick="openOverlay('/assets/work-3-full.jpg')">
+        <img src="/assets/work-3.jpg" alt="Work 3">
       </div>
     </div>
   </section>
 
-  <!-- CV (inline) -->
+  <!-- CV INLINE -->
   <section id="cv" class="cv">
     <h2>CV</h2>
-    <div class="cv-content">
-      <h3>Education</h3>
-      <p>B.A. in Painting — [University Name], 2020</p>
-
-      <h3>Exhibitions</h3>
-      <ul>
-        <li>“Exhibition A” — Oslo, 2023</li>
-        <li>“Exhibition B” — Torino, 2022</li>
-        <li>“Exhibition C” — Paris, 2021</li>
-      </ul>
-
-      <h3>Residencies</h3>
-      <ul>
-        <li>Artist Residency, Berlin, 2022</li>
-      </ul>
-
-      <h3>Press</h3>
-      <ul>
-        <li>Feature in ArtMag, 2023</li>
-        <li>Interview on Vimeo Arts, 2022</li>
-      </ul>
-
-      <h3>Contact</h3>
-      <p>Email: <a href="mailto:hello@example.com">hello@example.com</a></p>
-    </div>
+    <p>B.A. in Painting — University Name, 2020</p>
+    <p>Exhibitions: Oslo 2023, Torino 2022, Paris 2021</p>
+    <p>Residencies: Berlin 2022</p>
   </section>
 
   <!-- CONTACT -->
   <section id="contact" class="contact">
-    <h2>CONTACT</h2>
     <p>Email: <a href="mailto:hello@example.com">hello@example.com</a></p>
   </section>
+
 </main>
 
-<!-- FOOTER: social icons -->
+<!-- FOOTER -->
 <footer class="site-footer">
-  <a href="https://instagram.com/yourA" aria-label="Instagram A"><img src="/assets/instagram.svg" alt=""></a>
-  <a href="https://instagram.com/yourB" aria-label="Instagram B"><img src="/assets/instagram.svg" alt=""></a>
-  <a href="https://youtube.com/your" aria-label="YouTube"><img src="/assets/youtube.svg" alt=""></a>
-  <a href="https://vimeo.com/your" aria-label="Vimeo"><img src="/assets/vimeo.svg" alt=""></a>
+  <a href="https://instagram.com/yourA"><img src="/assets/instagram.svg" alt=""></a>
+  <a href="https://instagram.com/yourB"><img src="/assets/instagram.svg" alt=""></a>
+  <a href="https://youtube.com/your"><img src="/assets/youtube.svg" alt=""></a>
+  <a href="https://vimeo.com/your"><img src="/assets/vimeo.svg" alt=""></a>
+  <span class="footer-name">EL Shekari © 2025</span>
 </footer>
+
+<!-- FULLSCREEN OVERLAY -->
+<div id="overlay" onclick="closeOverlay()">
+  <img id="overlay-img" src="" alt="Work Full View">
+</div>
 
 <script src="scripts.js"></script>
 </body>
