@@ -1,171 +1,198 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>El Shekari — Portfolio</title>
-  <meta name="description" content="El Shekari — painting, video art, installation, painting, clothing, prints.">
+  <meta name="description" content="El Shekari — video art, cyanotype, installations. Minimal cinematic portfolio.">
+
   <!-- Open Graph -->
   <meta property="og:title" content="El Shekari — Portfolio">
-  <meta property="og:description" content="Video art • Paintings • Installations • Clothing • Stop motion">
+  <meta property="og:description" content="Video artist, painter & designer.">
+  <meta property="og:image" content="/assets/og-hero.jpg"> <!-- replace -->
   <meta property="og:type" content="website">
-  <!-- link to styles -->
+  <link rel="canonical" href="https://yourdomain.example/">
+
+  <!-- Fonts (license note in README) -->
+  <!-- If you self-host Minion/Proxima, replace/enable the @font-face below in styles.css -->
+  <!-- Fallbacks used: Playfair Display / Libre Baskerville for serif; Inter / system-ui for UI. -->
+
+  <!-- Styles -->
   <link rel="stylesheet" href="styles.css">
+
+  <!-- Optional analytics snippet (toggle tracking by uncommenting) -->
+  <!-- Google Analytics / Matomo snippets go here (see README) -->
+
+  <!-- Structured data suggestion (CreativeWork) -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Person",
+    "name":"El Shekari",
+    "url":"https://yourdomain.example",
+    "sameAs": ["https://instagram.com/yourA","https://instagram.com/yourB","https://youtube.com/your","https://vimeo.com/your"]
+  }
+  </script>
 </head>
 <body class="dark">
-  <!-- Header -->
-  <header class="site-header" role="banner" aria-label="Main header">
-    <a href="#hero" class="brand" aria-label="Home">
-      <img src="assets/CEC80458-3A91-472E-B483-9189FACDCF8A.svg" alt="El Shekari signature" id="signature">
-    </a>
+
+  <!-- Header (fixed) -->
+  <header class="site-header" role="banner">
+    <div class="header-left">
+      <a class="sig" href="#home" aria-label="Home (signature)">
+        <img src="/assets/signature.svg" alt="El Shekari signature">
+      </a>
+    </div>
 
     <div class="header-right">
-      <nav class="socials" aria-label="Social links">
-        <!-- Two Instagrams -->
-        <a href="https://instagram.com/yourinstaA" aria-label="Instagram A" target="_blank" rel="noopener">
-          <!-- Instagram svg -->
-          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5z"/></svg>
-        </a>
-        <a href="https://instagram.com/yourinstaB" aria-label="Instagram B" target="_blank" rel="noopener">
-          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5z"/></svg>
-        </a>
-        <a href="https://youtube.com/yourchannel" aria-label="YouTube" target="_blank" rel="noopener">
-          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M10 15l5-3-5-3z"/></svg>
-        </a>
-        <a href="https://vimeo.com/yourprofile" aria-label="Vimeo" target="_blank" rel="noopener">
-          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 8c2.3-1.3 4.2-2 5.7-2 2.2 0 3.8 1.4 5.1 4.2 1.6 3.6 3.3 5.4 5 5.2 1-0.1 2-0.9 3-2.3-2.1 4.8-4.2 7.2-6.4 7.2-1.7 0-3.5-1.9-5.4-5.6C6.6 10 4.9 8.2 3 8.2c-.6 0-1.3.3-2 .8z"/></svg>
-        </a>
+      <div class="name">El Shekari</div>
+
+      <nav class="social" aria-label="Social and contact">
+        <!-- replace hrefs -->
+        <a class="icon" href="https://instagram.com/elshekaari" target="_blank" rel="noopener" aria-label="Instagram A">IG A</a>
+        <a class="icon" href="https://instagram.com/another" target="_blank" rel="noopener" aria-label="Instagram B">IG B</a>
+        <a class="icon" href="https://youtube.com/" target="_blank" rel="noopener" aria-label="YouTube">YT</a>
+        <a class="icon" href="https://vimeo.com/" target="_blank" rel="noopener" aria-label="Vimeo">VM</a>
+        <a class="contact-link" href="#contact" aria-label="Contact">Contact</a>
       </nav>
-      <div class="name-contact">
-        <a class="site-name" href="#works">EL SHEKARI</a>
-        <a class="contact-link" href="#contact">Contact</a>
-      </div>
     </div>
   </header>
 
-  <!-- HERO -->
-  <main>
-    <section id="hero" class="hero" aria-label="Hero slideshow">
-      <div class="slideshow" id="slideshow" role="region" aria-roledescription="carousel" aria-label="Portfolio slideshow">
-        <!-- Slides; replace src with your files in /assets -->
-        <!-- Slide 1: image -->
-        <figure class="slide" data-caption="Almost Blue — cyanotype suit, 2024" data-alt="Cyanotype suit, 2024">
-          <img src="assets/hero1.jpg" alt="Cyanotype suit, 2024">
-          <figcaption class="caption">Almost Blue — cyanotype suit, 2024</figcaption>
+  <main id="home" tabindex="-1">
+
+    <!-- HERO: fullscreen slideshow -->
+    <section class="hero" aria-roledescription="carousel" aria-label="Featured works">
+      <div class="slides" id="hero-slides">
+        <!-- Slide (IMAGE example) -->
+        <figure class="slide" data-type="image" data-caption="— cyanotype suit, 2024" data-alt="cyanotype suit draped on mannequin">
+          <img src="/assets/hero-1.jpg"
+               srcset="/assets/hero-1.jpg 800w, /assets/hero-1@2x.jpg 1600w"
+               sizes="100vw"
+               alt="— cyanotype suit, 2024" loading="lazy">
+          <figcaption class="visually-hidden">— cyanotype suit, 2024</figcaption>
         </figure>
 
-        <!-- Slide 2: looping video (mute, plays inline) -->
-        <figure class="slide" data-caption="Stop motion — Paper Dress, 2023" data-alt="Stop motion — Paper Dress">
-          <video playsinline muted loop preload="metadata" class="hero-video">
-            <source src="assets/hero2.webm" type="video/webm">
-            <source src="assets/copy_8E78A7B6-7D1B-4EE4-AEFC-EC61AD58FEF3.mp4" type=video/mp4>
-          </2/IMG_1907\ 2.mp4>
-          <figcaption class="caption">Stop motion — Paper Dress, 2023</figcaption>
+        <!-- Slide (VIDEO example, looping) -->
+        <figure class="slide" data-type="video" data-caption="— looped installation, 2023" data-alt="looped installation">
+          <video playsinline muted loop preload="metadata" aria-hidden="false">
+            <source src="/assets/hero-2.webm" type="video/webm">
+            <source src="/assets/hero-2.mp4" type="video/mp4">
+          </video>
+          <figcaption class="visually-hidden">— looped installation, 2023</figcaption>
         </figure>
 
-        <!-- Slide 3: painting -->
-        <figure class="slide" data-caption="Blue Painting, 2022" data-alt="Blue Painting, 2022">
-          <img src="assets/hero3.jpg" alt="Blue Painting, 2022">
-          <figcaption class="caption">Blue Painting, 2022</figcaption>
+        <!-- Slide (GIF/Stop-motion) -->
+        <figure class="slide" data-type="image" data-caption="— stop-motion jacket, 2022" data-alt="stop-motion jacket">
+          <img src="/assets/hero-3.gif" alt="— stop-motion jacket, 2022" loading="lazy">
+          <figcaption class="visually-hidden">— stop-motion jacket, 2022</figcaption>
         </figure>
-
-        <!-- Controls -->
-        <button class="slide-control prev" aria-label="Previous slide">&#10094;</button>
-        <button class="slide-control next" aria-label="Next slide">&#10095;</button>
-
-        <!-- Dots (progress) -->
-        <div class="dots" id="dots" role="tablist" aria-hidden="false"></div>
       </div>
 
-      <!-- anchor nav under hero -->
-      <nav class="hero-nav" aria-label="Section navigation">
-        <a href="#works">Works</a>
-        <a href="cv.html">CV</a>
-        <a href="#artist-statement">Artist Statement</a>
-        <a href="#contact">Contacts</a>
-      </nav>
+      <!-- Controls -->
+      <button class="hero-control prev" aria-label="Previous slide" data-action="prev">‹</button>
+      <button class="hero-control next" aria-label="Next slide" data-action="next">›</button>
+
+      <!-- Indicators -->
+      <ol class="hero-indicators" id="hero-indicators" aria-hidden="true"></ol>
     </section>
+
+    <!-- simple anchor nav -->
+    <nav class="anchor-nav" aria-label="Page sections">
+      <a href="#works">Works</a>
+      <a href="cv.html">CV</a>
+      <a href="#statement">Artist Statement</a>
+      <a href="#contact">Contact</a>
+      <button id="lang-toggle" aria-pressed="false" title="Toggle language">FA / EN</button>
+    </nav>
 
     <!-- WORKS -->
-    <section id="works" class="works" aria-labelledby="works-heading">
-      <h2 id="works-heading">Works</h2>
+    <section id="works" class="works" aria-labelledby="works-title">
+      <h2 id="works-title">Works</h2>
+
       <div class="filters" role="tablist" aria-label="Filter works">
-        <button data-filter="all" class="active">All</button>
-        <button data-filter="installation">Installation</button>
-        <button data-filter="painting">Paintings</button>
-        <button data-filter="video">Video Art</button>
-        <button data-filter="documentary">Documentaries</button>
-        <button data-filter="stop motion">Stop Motion</button>
-        <button data-filter="clothing">Clothing / Prints</button>
-        <button data-filter="sculpture">Sculpture</button>
+        <button data-cat="all" class="active">All</button>
+        <button data-cat="installation">Installation</button>
+        <button data-cat="paintings">Paintings</button>
+        <button data-cat="video">Video Art</button>
+        <button data-cat="documentary">Documentaries</button>
+        <button data-cat="stopmotion">Stop Motion</button>
+        <button data-cat="clothing">Clothing & Prints</button>
+        <button data-cat="sculpture">Sculpture</button>
+        <button data-cat="exhibitions">Exhibitions</button>
       </div>
 
-      <div class="grid" id="works-grid" aria-live="polite"></div>
-    </section>
+      <div class="tiles" id="works-tiles" aria-live="polite">
+        <!-- example tile (static sample — JS will replace if example-content.json exists) -->
+        <article class="tile" data-cats="paintings,exhibitions" tabindex="0" aria-labelledby="t1">
+          <img src="/assets/thumb-painting.jpg" alt="— oil study, 2021" loading="lazy">
+          <div class="tile-meta">
+            <h3 id="t1">Oil Study</h3>
+            <p class="sub">2021 — Oil on linen</p>
+          </div>
+        </article>
 
-    <!-- Artist Statement -->
-    <section id="artist-statement" class="statement" aria-labelledby="statement-heading">
-      <h2 id="statement-heading">Artist Statement</h2>
-      <div class="statement-short">
-        <p class="poetic">My works  (Short version)</p>
-        <button id="expand-statement" aria-expanded="false">Read more</button>
+        <article class="tile collection" data-cats="clothing,prints" tabindex="0" aria-labelledby="c1">
+          <img src="/assets/thumb-clothing.jpg" alt="— cyanotype tank, Almost Blue" loading="lazy">
+          <div class="tile-meta">
+            <h3 id="c1">Almost Blue — Tank</h3>
+            <p class="sub">Cyanotype print — contact to buy</p>
+          </div>
+        </article>
       </div>
-      <div class="statement-long" hidden>
-        <p>Longer poetic artist statement goes here. Replace this text with your English and Persian versions. The site supports two-language toggles via the CMS.</p>
+    </section>
+
+    <!-- LIGHTBOX modal -->
+    <div id="lightbox" class="lightbox" aria-hidden="true" role="dialog" aria-modal="true">
+      <div class="lb-inner" role="document">
+        <button class="lb-close" aria-label="Close">✕</button>
+        <div class="lb-media" id="lb-media"></div>
+        <div class="lb-info">
+          <h3 id="lb-title">Title</h3>
+          <p id="lb-credits" class="muted">Credits • Year</p>
+          <p id="lb-text">Short project text (1–2 lines).</p>
+          <a id="lb-download" class="btn-outline" href="#" download>Download press kit (PDF)</a>
+        </div>
       </div>
+    </div>
+
+    <!-- Artist Statement (EN + FA) -->
+    <section id="statement" class="statement" aria-labelledby="statement-title">
+      <h2 id="statement-title">Artist Statement</h2>
+      <div class="statement-short en">
+        <p>We make light into cloth and memory into motion. I record in case the world forgets me.</p>
+      </div>
+      <div class="statement-short fa" lang="fa" dir="rtl" hidden>
+        <p>ما نور را به پارچه و یادها را به حرکت بدل می‌کنیم. من ثبت می‌کنم که جهان فراموشم نکند.</p>
+      </div>
+
+      <details class="statement-more">
+        <summary>Read longer statement</summary>
+        <div class="two-lang">
+          <div class="en">
+            <p>Longer poetic artist statement in English — editable via CMS.</p>
+          </div>
+          <div class="fa" lang="fa" dir="rtl" hidden>
+            <p>نسخهٔ کامل‌تر بیانیهٔ هنری به فارسی — از طریق CMS قابل ویرایش.</p>
+          </div>
+        </div>
+      </details>
     </section>
 
-    <!-- Contact -->
-    <section id="contact" class="contact" aria-labelledby="contact-heading">
-      <h2 id="contact-heading">Contact</h2>
-      <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="contact-form">
-        <input type="hidden" name="form-name" value="contact">
-        <p class="hidden"><label>Don’t fill this out if you're human: <input name="bot-field"></label></p>
-        <label>
-          Name
-          <input type="text" name="name" required>
-        </label>
-        <label>
-          Email
-          <input type="email" name="email" required>
-        </label>
-        <label>
-          Project type
-          <select name="project_type" aria-label="Project type">
-            <option>Commission</option>
-            <option>Collaboration</option>
-            <option>Purchase / Prints</option>
-            <option>Other</option>
-          </select>
-        </label>
-        <label>
-          Message
-          <textarea name="message" rows="5" required></textarea>
-        </label>
-        <label>
-          <input type="checkbox" name="request_cv"> Please attach / send my CV (PDF)
-        </label>
-        <button type="submit" class="btn">Send</button>
-      </form>
-
-      <div class="contact-details">
-        <p>Email: <a href="mailto:you@domain.com">you@domain.com</a></p>
-        
-
-      <p class="access-note">Accessibility: high-contrast black theme, keyboard navigation enabled. Request CV via form.</p>
+    <!-- Contact (email only) -->
+    <section id="contact" class="contact" aria-labelledby="contact-title">
+      <h2 id="contact-title">Contact</h2>
+      <p class="muted">For commissions, prints & press — <a href="mailto:you@example.com">you@example.com</a></p>
     </section>
+
+    <footer class="site-footer" role="contentinfo">
+      <small>© <span id="year"></span> El Shekari</small>
+      <nav class="footer-links">
+        <a href="cv.html">CV (PDF)</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </footer>
 
   </main>
-
-  <!-- Lightbox modal -->
-  <div id="modal" class="modal" role="dialog" aria-hidden="true" aria-labelledby="modal-title">
-    <button class="modal-close" aria-label="Close">&times;</button>
-    <div class="modal-content" id="modal-content"></div>
-  </div>
-
-  <footer class="site-footer">
-    <small>© El Shekari — portfolio</small>
-  </footer>
 
   <script src="scripts.js" defer></script>
 </body>
