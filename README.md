@@ -1,19 +1,23 @@
-# EL Shekari Portfolio (Single Page)
+// Slideshow
+const slides = document.querySelectorAll('.slide');
+let current = 0;
+let interval = setInterval(nextSlide,7000);
 
-This is a **minimal, cinematic single-page portfolio** for EL Shekari. Inspired by dorsabasij.com, it features:
+function showSlide(index){
+  slides.forEach((s,i)=>s.classList.toggle('active',i===index));
+}
+function nextSlide(){ current=(current+1)%slides.length; showSlide(current);}
+function prevSlide(){ current=(current-1+slides.length-1)%slides.length; showSlide(current);}
 
-- Black-on-black theme (#1c1c1c)  
-- Smaller slideshow supporting images, video, GIF/MP4  
-- Signature in top-left, EL Shekari name in top-right nav  
-- Artist Statement and Biography under slideshow  
-- Works preview grid  
-- Inline CV section  
-- Footer with social links (Instagram A/B, YouTube, Vimeo)  
-- Fully responsive, accessible, lazy-loaded images, WebM fallback for videos  
-- Fonts: **Minion Pro (headings)**, **Proxima Nova (body/UI)**
+document.querySelector('.hero-control.next').addEventListener('click',()=>{nextSlide(); resetInterval();});
+document.querySelector('.hero-control.prev').addEventListener('click',()=>{prevSlide(); resetInterval();});
+document.getElementById('hero-slides').addEventListener('mouseenter',()=>clearInterval(interval));
+document.getElementById('hero-slides').addEventListener('mouseleave',()=>interval=setInterval(nextSlide,7000));
+function resetInterval(){clearInterval(interval); interval=setInterval(nextSlide,7000);}
 
-## Installation
-
-1. Clone this repository:
-```bash
-git clone https://github.com/yourusername/el-shekari-portfolio.git
+// Overlay for works
+function openOverlay(src){
+  document.getElementById('overlay-img').src = src;
+  document.getElementById('overlay').style.display = 'flex';
+}
+function closeOverlay(){ document.getElementById('overlay').style.display='none'; }
