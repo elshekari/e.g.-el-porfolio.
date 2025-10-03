@@ -1,28 +1,45 @@
+---
+
+## 2️⃣ `example-content.json`
+
+```json
 {
-  "works": [
+  "heroSlides": [
     {
-      "id": "w1",
-      "title": "Almost Blue — Tank",
-      "year": "2024",
-      "medium": "Cyanotype on cotton",
-      "categories": ["clothing","prints"],
-      "thumb": "/assets/thumb-clothing.jpg",
-      "large": "/assets/hero-1.jpg",
-      "alt": "— cyanotype tank, 2024",
-      "text": "Edition of 20. Contact to buy.",
-      "presskit": "/assets/presskit-almost-blue.pdf"
+      "type": "image",
+      "src": "/assets/hero-1.jpg",
+      "caption": "— cyanotype suit, 2024"
     },
     {
-      "id": "w2",
-      "title": "Looped Installation",
-      "year": "2023",
-      "medium": "Video installation",
-      "categories": ["installation","video"],
-      "thumb": "/assets/thumb-video.jpg",
       "type": "video",
-      "embed": "https://player.vimeo.com/video/000000000",
-      "alt": "— looped installation, 2023",
-      "text": "Looped projection at Gallery X."
+      "src": "/assets/hero-2.mp4",
+      "webm": "/assets/hero-2.webm",
+      "caption": "— installation loop, 2023"
+    },
+    {
+      "type": "image",
+      "src": "/assets/hero-3.gif",
+      "caption": "— stop-motion jacket, 2022"
+    }
+  ],
+  "works": [
+    {
+      "title": "Work 1",
+      "year": 2024,
+      "medium": "Painting",
+      "thumbnail": "/assets/work-1.jpg",
+      "full": "/assets/work-1-full.jpg",
+      "credits": "EL Shekari",
+      "description": "Short project text"
+    },
+    {
+      "title": "Work 2",
+      "year": 2023,
+      "medium": "Video Art",
+      "thumbnail": "/assets/work-2.jpg",
+      "full": "/assets/work-2-full.mp4",
+      "credits": "EL Shekari",
+      "description": "Short project text"
     }
   ]
 }
