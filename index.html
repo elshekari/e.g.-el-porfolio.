@@ -1,199 +1,162 @@
-<!doctype html>
-<html lang="en" dir="ltr">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>El Shekari — Portfolio</title>
-  <meta name="description" content="El Shekari — video art, cyanotype, installations. Minimal cinematic portfolio.">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EL Shekari — Portfolio</title>
+<meta name="description" content="EL Shekari — video art, cyanotype, installations. Minimal cinematic single-page portfolio.">
+<meta property="og:image" content="/assets/og-hero.jpg">
 
-  <!-- Open Graph -->
-  <meta property="og:title" content="El Shekari — Portfolio">
-  <meta property="og:description" content="Video artist, painter & designer.">
-  <meta property="og:image" content="/assets/og-hero.jpg"> <!-- replace -->
-  <meta property="og:type" content="website">
-  <link rel="canonical" href="https://yourdomain.example/">
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet"> <!-- Minion placeholder -->
+<link href="https://fonts.googleapis.com/css2?family=Proxima+Nova:wght@400;500&display=swap" rel="stylesheet"> <!-- Proxima placeholder -->
 
-  <!-- Fonts (license note in README) -->
-  <!-- If you self-host Minion/Proxima, replace/enable the @font-face below in styles.css -->
-  <!-- Fallbacks used: Playfair Display / Libre Baskerville for serif; Inter / system-ui for UI. -->
+<link rel="stylesheet" href="styles.css">
 
-  <!-- Styles -->
-  <link rel="stylesheet" href="styles.css">
-
-  <!-- Optional analytics snippet (toggle tracking by uncommenting) -->
-  <!-- Google Analytics / Matomo snippets go here (see README) -->
-
-  <!-- Structured data suggestion (CreativeWork) -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"Person",
-    "name":"El Shekari",
-    "url":"https://yourdomain.example",
-    "sameAs": ["https://instagram.com/yourA","https://instagram.com/yourB","https://youtube.com/your","https://vimeo.com/your"]
-  }
-  </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "EL Shekari",
+  "url": "https://yourdomain.example",
+  "sameAs": [
+    "https://instagram.com/yourA",
+    "https://instagram.com/yourB",
+    "https://youtube.com/your",
+    "https://vimeo.com/your"
+  ]
+}
+</script>
 </head>
 <body class="dark">
 
-  <!-- Header (fixed) -->
-  <header class="site-header" role="banner">
-    <div class="header-left">
-      <a class="sig" href="#home" aria-label="Home (signature)">
-        <img src="/assets/signature.svg" alt="El Shekari signature">
-      </a>
+<!-- HEADER -->
+<header class="site-header">
+  <div class="header-left">
+    <a href="#home" class="sig" aria-label="Home (signature)">
+      <img src="/assets/signature.svg" alt="EL Shekari signature">
+    </a>
+  </div>
+
+  <nav class="header-right">
+    <a href="#works">WORKS</a>
+    <a href="#cv">CV</a>
+    <a href="#statement">ARTIST STATEMENT</a>
+    <a href="#contact">CONTACT</a>
+  </nav>
+</header>
+
+<main id="home">
+
+  <!-- HERO: smaller slideshow -->
+  <section class="hero">
+    <div class="slides" id="hero-slides">
+      <!-- IMAGE -->
+      <figure class="slide active" data-type="image" data-caption="— cyanotype suit, 2024">
+        <img src="/assets/hero-1.jpg" alt="— cyanotype suit, 2024" loading="lazy">
+      </figure>
+      <!-- VIDEO -->
+      <figure class="slide" data-type="video" data-caption="— installation loop, 2023">
+        <video playsinline muted loop preload="metadata">
+          <source src="/assets/hero-2.webm" type="video/webm">
+          <source src="/assets/hero-2.mp4" type="video/mp4">
+        </video>
+      </figure>
+      <!-- GIF -->
+      <figure class="slide" data-type="image" data-caption="— stop-motion jacket, 2022">
+        <img src="/assets/hero-3.gif" alt="— stop-motion jacket, 2022" loading="lazy">
+      </figure>
     </div>
 
-    <div class="header-right">
-      <div class="name">El Shekari</div>
+    <button class="hero-control prev" aria-label="Previous slide">‹</button>
+    <button class="hero-control next" aria-label="Next slide">›</button>
+  </section>
 
-      <nav class="social" aria-label="Social and contact">
-        <!-- replace hrefs -->
-        <a class="icon" href="https://instagram.com/elshekaari" target="_blank" rel="noopener" aria-label="Instagram A">IG A</a>
-        <a class="icon" href="https://instagram.com/another" target="_blank" rel="noopener" aria-label="Instagram B">IG B</a>
-        <a class="icon" href="https://youtube.com/" target="_blank" rel="noopener" aria-label="YouTube">YT</a>
-        <a class="icon" href="https://vimeo.com/" target="_blank" rel="noopener" aria-label="Vimeo">VM</a>
-        <a class="contact-link" href="#contact" aria-label="Contact">Contact</a>
-      </nav>
-    </div>
-  </header>
+  <!-- ARTIST STATEMENT + BIOGRAPHY -->
+  <section id="statement" class="statement">
+    <h2>ARTIST STATEMENT</h2>
+    <p class="lead">
+      We make light into cloth and memory into motion. I record in case the world forgets me.
+    </p>
+    <details>
+      <summary>Read longer statement</summary>
+      <p>
+        A longer lyrical statement lives here — the place where process and obsession meet print, paint, and projection.
+      </p>
+    </details>
 
-  <main id="home" tabindex="-1">
+    <h3>BIOGRAPHY</h3>
+    <p>
+      EL Shekari is a multidisciplinary artist working with video, installation, cyanotype, and painting. They have exhibited internationally and explore the intersections of memory, documentation, and materiality.
+    </p>
+  </section>
 
-    <!-- HERO: fullscreen slideshow -->
-    <section class="hero" aria-roledescription="carousel" aria-label="Featured works">
-      <div class="slides" id="hero-slides">
-        <!-- Slide (IMAGE example) -->
-        <figure class="slide" data-type="image" data-caption="— cyanotype suit, 2024" data-alt="cyanotype suit draped on mannequin">
-          <img src="/assets/hero-1.jpg"
-               srcset="/assets/hero-1.jpg 800w, /assets/hero-1@2x.jpg 1600w"
-               sizes="100vw"
-               alt="— cyanotype suit, 2024" loading="lazy">
-          <figcaption class="visually-hidden">— cyanotype suit, 2024</figcaption>
-        </figure>
-
-        <!-- Slide (VIDEO example, looping) -->
-        <figure class="slide" data-type="video" data-caption="— looped installation, 2023" data-alt="looped installation">
-          <video playsinline muted loop preload="metadata" aria-hidden="false">
-            <source src="/assets/hero-2.webm" type="video/webm">
-            <source src="/assets/hero-2.mp4" type="video/mp4">
-          </video>
-          <figcaption class="visually-hidden">— looped installation, 2023</figcaption>
-        </figure>
-
-        <!-- Slide (GIF/Stop-motion) -->
-        <figure class="slide" data-type="image" data-caption="— stop-motion jacket, 2022" data-alt="stop-motion jacket">
-          <img src="/assets/hero-3.gif" alt="— stop-motion jacket, 2022" loading="lazy">
-          <figcaption class="visually-hidden">— stop-motion jacket, 2022</figcaption>
-        </figure>
+  <!-- WORKS PREVIEW -->
+  <section id="works" class="works">
+    <h2>WORKS</h2>
+    <div class="works-grid">
+      <div class="work-tile">
+        <img src="/assets/work-1.jpg" alt="Work 1" loading="lazy">
+        <div class="tile-info">
+          <h4>Work 1</h4>
+          <span>2024 | Painting</span>
+        </div>
       </div>
-
-      <!-- Controls -->
-      <button class="hero-control prev" aria-label="Previous slide" data-action="prev">‹</button>
-      <button class="hero-control next" aria-label="Next slide" data-action="next">›</button>
-
-      <!-- Indicators -->
-      <ol class="hero-indicators" id="hero-indicators" aria-hidden="true"></ol>
-    </section>
-
-    <!-- simple anchor nav -->
-    <nav class="anchor-nav" aria-label="Page sections">
-      <a href="#works">Works</a>
-      <a href="cv.html">CV</a>
-      <a href="#statement">Artist Statement</a>
-      <a href="#contact">Contact</a>
-      <button id="lang-toggle" aria-pressed="false" title="Toggle language">FA / EN</button>
-    </nav>
-
-    <!-- WORKS -->
-    <section id="works" class="works" aria-labelledby="works-title">
-      <h2 id="works-title">Works</h2>
-
-      <div class="filters" role="tablist" aria-label="Filter works">
-        <button data-cat="all" class="active">All</button>
-        <button data-cat="installation">Installation</button>
-        <button data-cat="paintings">Paintings</button>
-        <button data-cat="video">Video Art</button>
-        <button data-cat="documentary">Documentaries</button>
-        <button data-cat="stopmotion">Stop Motion</button>
-        <button data-cat="clothing">Clothing & Prints</button>
-        <button data-cat="sculpture">Sculpture</button>
-        <button data-cat="exhibitions">Exhibitions</button>
-      </div>
-
-      <div class="tiles" id="works-tiles" aria-live="polite">
-        <!-- example tile (static sample — JS will replace if example-content.json exists) -->
-        <article class="tile" data-cats="paintings,exhibitions" tabindex="0" aria-labelledby="t1">
-          <img src="/assets/thumb-painting.jpg" alt="— oil study, 2021" loading="lazy">
-          <div class="tile-meta">
-            <h3 id="t1">Oil Study</h3>
-            <p class="sub">2021 — Oil on linen</p>
-          </div>
-        </article>
-
-        <article class="tile collection" data-cats="clothing,prints" tabindex="0" aria-labelledby="c1">
-          <img src="/assets/thumb-clothing.jpg" alt="— cyanotype tank, Almost Blue" loading="lazy">
-          <div class="tile-meta">
-            <h3 id="c1">Almost Blue — Tank</h3>
-            <p class="sub">Cyanotype print — contact to buy</p>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <!-- LIGHTBOX modal -->
-    <div id="lightbox" class="lightbox" aria-hidden="true" role="dialog" aria-modal="true">
-      <div class="lb-inner" role="document">
-        <button class="lb-close" aria-label="Close">✕</button>
-        <div class="lb-media" id="lb-media"></div>
-        <div class="lb-info">
-          <h3 id="lb-title">Title</h3>
-          <p id="lb-credits" class="muted">Credits • Year</p>
-          <p id="lb-text">Short project text (1–2 lines).</p>
-          <a id="lb-download" class="btn-outline" href="#" download>Download press kit (PDF)</a>
+      <div class="work-tile">
+        <img src="/assets/work-2.jpg" alt="Work 2" loading="lazy">
+        <div class="tile-info">
+          <h4>Work 2</h4>
+          <span>2023 | Video Art</span>
         </div>
       </div>
     </div>
+  </section>
 
-    <!-- Artist Statement (EN + FA) -->
-    <section id="statement" class="statement" aria-labelledby="statement-title">
-      <h2 id="statement-title">Artist Statement</h2>
-      <div class="statement-short en">
-        <p>We make light into cloth and memory into motion. I record in case the world forgets me.</p>
-      </div>
-      <div class="statement-short fa" lang="fa" dir="rtl" hidden>
-        <p>ما نور را به پارچه و یادها را به حرکت بدل می‌کنیم. من ثبت می‌کنم که جهان فراموشم نکند.</p>
-      </div>
+  <!-- CV (inline) -->
+  <section id="cv" class="cv">
+    <h2>CV</h2>
+    <div class="cv-content">
+      <h3>Education</h3>
+      <p>B.A. in Painting — [University Name], 2020</p>
 
-      <details class="statement-more">
-        <summary>Read longer statement</summary>
-        <div class="two-lang">
-          <div class="en">
-            <p>Longer poetic artist statement in English — editable via CMS.</p>
-          </div>
-          <div class="fa" lang="fa" dir="rtl" hidden>
-            <p>نسخهٔ کامل‌تر بیانیهٔ هنری به فارسی — از طریق CMS قابل ویرایش.</p>
-          </div>
-        </div>
-      </details>
-    </section>
+      <h3>Exhibitions</h3>
+      <ul>
+        <li>“Exhibition A” — Oslo, 2023</li>
+        <li>“Exhibition B” — Torino, 2022</li>
+        <li>“Exhibition C” — Paris, 2021</li>
+      </ul>
 
-    <!-- Contact (email only) -->
-    <section id="contact" class="contact" aria-labelledby="contact-title">
-      <h2 id="contact-title">Contact</h2>
-      <p class="muted">For commissions, prints & press — <a href="mailto:you@example.com">you@example.com</a></p>
-    </section>
+      <h3>Residencies</h3>
+      <ul>
+        <li>Artist Residency, Berlin, 2022</li>
+      </ul>
 
-    <footer class="site-footer" role="contentinfo">
-      <small>© <span id="year"></span> El Shekari</small>
-      <nav class="footer-links">
-        <a href="cv.html">CV (PDF)</a>
-        <a href="#contact">Contact</a>
-      </nav>
-    </footer>
+      <h3>Press</h3>
+      <ul>
+        <li>Feature in ArtMag, 2023</li>
+        <li>Interview on Vimeo Arts, 2022</li>
+      </ul>
 
-  </main>
+      <h3>Contact</h3>
+      <p>Email: <a href="mailto:hello@example.com">hello@example.com</a></p>
+    </div>
+  </section>
 
-  <script src="scripts.js" defer></script>
+  <!-- CONTACT -->
+  <section id="contact" class="contact">
+    <h2>CONTACT</h2>
+    <p>Email: <a href="mailto:hello@example.com">hello@example.com</a></p>
+  </section>
+</main>
+
+<!-- FOOTER: social icons -->
+<footer class="site-footer">
+  <a href="https://instagram.com/yourA" aria-label="Instagram A"><img src="/assets/instagram.svg" alt=""></a>
+  <a href="https://instagram.com/yourB" aria-label="Instagram B"><img src="/assets/instagram.svg" alt=""></a>
+  <a href="https://youtube.com/your" aria-label="YouTube"><img src="/assets/youtube.svg" alt=""></a>
+  <a href="https://vimeo.com/your" aria-label="Vimeo"><img src="/assets/vimeo.svg" alt=""></a>
+</footer>
+
+<script src="scripts.js"></script>
 </body>
 </html>
