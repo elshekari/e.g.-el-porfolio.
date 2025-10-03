@@ -5,41 +5,55 @@
   <title>CV — El Shekari</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <link rel="stylesheet" href="styles.css">
+  <meta name="robots" content="noindex">
 </head>
-<body class="dark">
-  <header class="site-header">
-    <a href="index.html" class="brand"><img src="assets/signature.svg" alt="signature"></a>
-    <div class="header-right"><a href="index.html" class="site-name">EL SHEKARI</a></div>
+<body class="dark cv">
+  <header class="site-header simple" role="banner">
+    <a class="sig" href="/"><img src="/assets/signature.svg" alt="signature"></a>
+    <div class="name">El Shekari</div>
   </header>
 
-  <main class="cv-page">
-    <section>
-      <h1>El Shekari</h1>
-      <p>BA Painting — Video artist, maker, stylist.</p>
-      <a href="assets/cv.pdf" download class="btn">Download PDF CV</a>
-    </section>
+  <main class="cv-content" role="main">
+    <article>
+      <h1>Curriculum Vitae</h1>
+      <p class="muted">Download: <a href="/assets/CV-El-Shekari.pdf" download>PDF</a></p>
 
-    <section>
-      <h2>Education</h2>
-      <ul>
-        <li>BA Painting — University Name — Year</li>
-      </ul>
-    </section>
+      <section>
+        <h2>Education</h2>
+        <ul>
+          <li>B.A. Painting — Institution — Year</li>
+        </ul>
+      </section>
 
-    <section>
-      <h2>Exhibitions</h2>
-      <ol>
-        <li>2024 — Almost Blue — Gallery</li>
-        <li>2023 — Paper Dress — Festival</li>
-      </ol>
-    </section>
+      <section>
+        <h2>Selected Exhibitions</h2>
+        <ul>
+          <li>2024 — Solo, Gallery Name, City</li>
+          <li>2023 — Group, Museum, City</li>
+        </ul>
+      </section>
 
-    <section>
-      <h2>Residencies & Press</h2>
-      <p>Short bullets here.</p>
-    </section>
+      <section>
+        <h2>Residencies</h2>
+        <ul>
+          <li>2022 — Residency Name</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Press</h2>
+        <ul>
+          <li>Article title — Publication — Year</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Contact</h2>
+        <p>you@example.com</p>
+      </section>
+    </article>
   </main>
 
-  <footer class="site-footer"><small>© El Shekari</small></footer>
+  <script>document.getElementById('year')?.textContent = new Date().getFullYear();</script>
 </body>
 </html>
